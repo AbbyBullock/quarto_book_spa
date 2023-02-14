@@ -1,6 +1,7 @@
 ---
 editor_options: 
   chunk_output_type: console
+  filters: output-folding
 ---
 
 # Журнал посещений
@@ -11,7 +12,6 @@ editor_options:
 
 ```{r}
 #| include: false
-
 library(tidyverse)
 library(lubridate)
 library(hms)
@@ -91,11 +91,11 @@ Session_log %>%
 
 Ниже мы посмотрим какая доля посещений приходится на каждый вид абонемента:
 
-```{r}
+```{r message=FALSE}
 #| echo: false
 Session_log %>% 
   count(сard_type_2, sort = T) %>% 
-  summarise(сard_type_2, prop = n/sum(n)*100) %>% 
+  reframe(сard_type_2, prop = n/sum(n)*100) %>% 
   mutate(prop = round(prop, 1)) %>% 
   set_names("Тип абонемента", "Доля %")
 ```
@@ -110,9 +110,9 @@ Session_log %>%
   filter(!is.na(year_start)) %>% 
   count(year_start, сard_type_2) %>%
   group_by(year_start) %>%
-  summarise(сard_type_2, n, y = sum(n)) %>%
+  reframe(сard_type_2, n, y = sum(n)) %>%
   ungroup() %>% 
-  summarise(year_start, сard_type_2, prop = n/y*100) %>% 
+  reframe(year_start, сard_type_2, prop = n/y*100) %>% 
   mutate(prop = round(prop, 1)) %>% 
   pivot_wider(names_from = year_start, values_from = prop)
 ```
@@ -129,7 +129,7 @@ gg_prop_log <- Session_log %>%
   filter(!is.na(year_start)) %>% 
   count(year_start, сard_type_2) %>%
   group_by(year_start) %>%
-  summarise(сard_type_2, n, y = sum(n)) %>%
+  reframe(сard_type_2, n, y = sum(n)) %>%
   ungroup() %>% 
   summarise(year_start, сard_type_2, prop = n/y*100) %>% 
   mutate(prop = round(prop, 1)) %>% 

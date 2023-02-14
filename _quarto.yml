@@ -5,7 +5,7 @@ project:
 book:
   title: "Анализ спа-центра"
   author: "Костыря Владимир"
-  date: "10.09.2022"
+  date: "2022-09-10"
   sidebar:
     style: docked
     background: light
@@ -18,14 +18,14 @@ book:
 
 bibliography: references.bib
 
-fformat:
+format:
   html:
     theme:
       - cosmo
       - styles.scss
     df-print: paged
     code-fold: true
-    cover-image: rest.png
+    cover-image: logo.png
   pdf:
     documentclass: scrreport
 
