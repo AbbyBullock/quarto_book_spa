@@ -6,6 +6,9 @@ book:
   title: "Анализ спа-центра"
   author: "Костыря Владимир"
   date: "10.09.2022"
+  sidebar:
+    style: docked
+    background: light
   page-navigation: true
   page-footer: "Ногинск 2022, Костыря Владимир"
   cover-image: logo.png
@@ -15,14 +18,15 @@ book:
 
 bibliography: references.bib
 
-format:
+fformat:
   html:
-    theme: yeti
+    theme:
+      - cosmo
+      - styles.scss
     df-print: paged
     code-fold: true
-    cover-image: logo.png
+    cover-image: rest.png
   pdf:
     documentclass: scrreport
 
 editor: visual
-
