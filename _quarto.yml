@@ -27,6 +27,6 @@ format:
     code-fold: true
     cover-image: logo.png
   pdf:
-    documentclass: scrreport
+    documentclass: scrartcl
 
 editor: visual
