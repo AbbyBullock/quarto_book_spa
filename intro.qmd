@@ -19,7 +19,7 @@ library(dtplyr)
 library(patchwork)
 library(vroom)
 library(plotly)
-Session_log <- vroom("/Users/abbybullock/Library/Mobile Documents/com~apple~CloudDocs/DDM/Git/Universe/Session_log_end.csv")
+Session_log <- vroom("/Users/abbybullock/Library/Mobile Documents/com~apple~CloudDocs/DDM/Git/WORK/SSOU/Universe/Session_log_end.csv")
 ```
 
 ```{r}
